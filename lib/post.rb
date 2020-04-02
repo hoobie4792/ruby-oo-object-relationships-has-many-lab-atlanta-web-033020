@@ -1,16 +1,12 @@
+require 'pry'
 class Post
-    attr_reader :title, :author
-
+    attr_accessor :author
+    attr_reader :title
     @@all = []
 
     def initialize(title)
         @title = title
         @@all << self
-    end
-
-    def author=(author)
-        @author = author
-        author.posts << self
     end
 
     def self.all
@@ -19,9 +15,9 @@ class Post
 
     def author_name
         if self.author
-            self.author.name
+            name = self.author.name
         else
-            nil
+            name = nil
         end
     end
 end
